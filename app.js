@@ -986,7 +986,7 @@ function addEducation() {
     </div>
     <div class="form-group">
       <label>Score/GPA</label>
-      <input type="number" id="editScore" class="form-control" step="0.1" min="0" max="4" required>
+      <input type="number" id="editScore" class="form-control" step="0.1" min="0" max="10" required>
     </div>
     <button type="submit" class="btn btn--primary btn--full-width">Add Education</button>
   `;
