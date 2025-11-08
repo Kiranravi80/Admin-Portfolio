@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiran - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Portfolio Public View -->
+    <div id="portfolioView" class="view-container">
+        <!-- Navigation -->
+        <nav class="main-nav">
+            <div class="nav-container">
+                <div class="nav-brand">Kiran's Portfolio</div>
+                <!-- Resume button (hidden by default; shown when resume URL exists) -->
+                <a id="resumeBtn" class="btn btn--outline" href="#" target="_blank" style="margin-right:8px; display:none;">Resume</a>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="nav-links" id="navLinks">
+                    <a href="#profile" class="nav-link">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#education" class="nav-link">Education</a>
+                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#experience" class="nav-link">Experience</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#certifications" class="nav-link">Certifications</a>
+                    <a href="#achievements" class="nav-link">Achievements</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Profile/Hero Section -->
+        <section id="profile" class="section hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title" id="profileName">Your Name</h1>
+                    <p class="hero-subtitle" id="profileTitle">Full Stack Developer</p>
+                    <p class="hero-bio" id="profileBio">Passionate about creating beautiful and functional web applications</p>
+                    <div class="social-links">
+                        <a href="#" id="socialGitHub" class="social-icon" target="_blank" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" id="socialLinkedIn" class="social-icon" target="_blank" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" id="socialTwitter" class="social-icon" target="_blank" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" id="socialInstagram" class="social-icon" target="_blank" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon admin-icon" id="adminIcon" title="Admin Login">
+                            <i class="fas fa-cog"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <p id="aboutContent"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="section">
+            <div class="container">
+                <h2 class="section-title">Education</h2>
+                <div class="education-list" id="educationList"></div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <div class="container">
+                <h2 class="section-title">Skills</h2>
+                <div class="skills-grid" id="skillsList"></div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section">
+            <div class="container">
+                <h2 class="section-title">Experience</h2>
+                <div class="experience-timeline" id="experienceTimeline"></div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <div class="container">
+                <h2 class="section-title">Projects</h2>
+                <div class="projects-grid" id="projectsList"></div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="section">
+            <div class="container">
+                <h2 class="section-title">Certifications</h2>
+                <div class="certifications-grid" id="certificationsList"></div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section id="achievements" class="section">
+            <div class="container">
+                <h2 class="section-title">Achievements</h2>
+                <div class="achievements-grid" id="achievementsList"></div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="section-title">Contact Me</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span id="contactEmail"></span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span id="contactPhone"></span>
+                        </div>
+                        <p id="contactMessage" class="contact-message"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content login-modal">
+            <span class="close-modal" id="closeLogin">&times;</span>
+            <h2>Admin Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="adminPassword">Password</label>
+                    <input type="password" id="adminPassword" class="form-control" placeholder="Enter admin password" required>
+                </div>
+                <div class="error-message" id="loginError"></div>
+                <button type="submit" class="btn btn--primary btn--full-width">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard View -->
+    <div id="adminView" class="view-container" style="display: none;">
+        <div class="admin-layout">
+            <!-- Sidebar -->
+            <aside class="admin-sidebar">
+                <div class="admin-header">
+                    <h2>Admin Panel</h2>
+                    <button class="btn btn--outline btn--sm" id="logoutBtn">Logout</button>
+                </div>
+                <nav class="admin-nav">
+                    <a href="#" class="admin-nav-link active" data-section="profile">Profile</a>
+                    <a href="#" class="admin-nav-link" data-section="about">About</a>
+                    <a href="#" class="admin-nav-link" data-section="education">Education</a>
+                    <a href="#" class="admin-nav-link" data-section="skills">Skills</a>
+                    <a href="#" class="admin-nav-link" data-section="experience">Experience</a>
+                    <a href="#" class="admin-nav-link" data-section="projects">Projects</a>
+                    <a href="#" class="admin-nav-link" data-section="certifications">Certifications</a>
+                    <a href="#" class="admin-nav-link" data-section="achievements">Achievements</a>
+                    <a href="#" class="admin-nav-link" data-section="contact">Contact</a>
+                </nav>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="admin-main">
+                <div id="adminContent"></div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal">
+        <div class="modal-content edit-modal">
+            <span class="close-modal" id="closeEdit">&times;</span>
+            <h2 id="editModalTitle">Edit Item</h2>
+            <form id="editForm"></form>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content delete-modal">
+            <span class="close-modal" id="closeDelete">&times;</span>
+            <h2>Confirm Delete</h2>
+            <p>Are you sure you want to delete this item? This action cannot be undone.</p>
+            <div class="modal-actions">
+                <button class="btn btn--secondary" id="cancelDelete">Cancel</button>
+                <button class="btn btn--primary" id="confirmDelete">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
